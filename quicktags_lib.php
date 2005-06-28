@@ -1,5 +1,16 @@
 <?php
+/**
+* quicktags package
+*
+* @author   
+* @version  $Revision: 1.2 $
+* @package  quicktags
+*/
 
+/**
+* @package  quicktags
+* @subpackage  QuickTagsLib
+*/
 class QuickTagsLib extends BitBase {
 	function QuickTagsLib() {
 		BitBase::BitBase();
