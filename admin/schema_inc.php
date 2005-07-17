@@ -16,7 +16,7 @@ $tables = array(
 global $gBitInstaller, $gBitDbType;
 
 foreach( array_keys( $tables ) AS $tableName ) {
-	$gBitInstaller->registerSchemaTable( QUICKTAGS_PKG_DIR, $tableName, $tables[$tableName] );
+	$gBitInstaller->registerSchemaTable( QUICKTAGS_PKG_NAME, $tableName, $tables[$tableName] );
 }
 
 $gBitInstaller->registerPackageInfo( QUICKTAGS_PKG_NAME, array(
@@ -183,7 +183,7 @@ if ( $gBitDbType == "firebird" )
 
 foreach( $format_guids as $fg => $qts ) {
 	foreach( $qts as $qt ) {
-		$gBitInstaller->registerSchemaDefault( QUICKTAGS_PKG_DIR, 
+		$gBitInstaller->registerSchemaDefault( QUICKTAGS_PKG_NAME, 
 			"INSERT INTO `".BIT_DB_PREFIX."tiki_quicktags`	(`format_guid`,`tagpos`,`taglabel`,`tagicon`,`taginsert`) VALUES ('$fg','$qt[0]','$qt[1]','$qt[2]','$qt[3]')"
 		);
 	}
