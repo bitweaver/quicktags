@@ -177,8 +177,10 @@ $format_guids = array(
 );
 
 // Adjust italic tikiwiki entry to correct escape sequence
-if ( $gBitDbType == "firebird" )
-{ $format_guids['tikiwiki'][1][3] = "''''text''''";
+if ( $gBitDbType == "firebird" || $gBitDbType == "mssql" )
+{
+	$format_guids['pearwiki_tiki'][1][3] = "''''text''''";
+	$format_guids['tikiwiki'][1][3] = "''''text''''";
 }
 
 foreach( $format_guids as $fg => $qts ) {
