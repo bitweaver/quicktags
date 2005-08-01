@@ -1,6 +1,6 @@
 <?php
 
-// $Header: /cvsroot/bitweaver/_bit_quicktags/admin/admin_quicktags.php,v 1.1 2005/06/19 05:01:29 bitweaver Exp $
+// $Header: /cvsroot/bitweaver/_bit_quicktags/admin/admin_quicktags.php,v 1.2 2005/08/01 18:41:17 squareing Exp $
 
 // Copyright (c) 2002-2003, Luis Argerich, Garland Foster, Eduardo Polidor, et. al.
 // All Rights Reserved. See copyright.txt for details and a complete list of authors.
@@ -19,14 +19,14 @@ if( !isset( $_REQUEST['format_guid'] ) ) {
 	die;
 } else {
 	$format_guid = $_REQUEST['format_guid'];
-	$smarty->assign( 'format_guid', $format_guid );
+	$gBitSmarty->assign( 'format_guid', $format_guid );
 }
 
 if (!isset($_REQUEST["tag_id"])) {
 	$_REQUEST["tag_id"] = 0;
 }
 
-$smarty->assign('tag_id', $_REQUEST["tag_id"]);
+$gBitSmarty->assign('tag_id', $_REQUEST["tag_id"]);
 
 if ($_REQUEST["tag_id"]) {
 	$info = $quicktagslib->get_quicktag($_REQUEST["tag_id"]);
@@ -52,10 +52,10 @@ if (isset($_REQUEST["save"])) {
 	$info['taglabel'] = '';
 	$info['taginsert'] = '';
 	$info['tagicon'] = '';
-	$smarty->assign('name', '');
+	$gBitSmarty->assign('name', '');
 }
 
-$smarty->assign('info', $info);
+$gBitSmarty->assign('info', $info);
 
 if ( empty( $_REQUEST["sort_mode"] ) ) {
 	$sort_mode = 'tagpos_asc';
@@ -72,7 +72,7 @@ if (isset($_REQUEST['page'])) {
 	$page = &$_REQUEST['page'];
 	$offset = ($page - 1) * $maxRecords;
 }
-$smarty->assign_by_ref('offset', $offset);
+$gBitSmarty->assign_by_ref('offset', $offset);
 
 if (isset($_REQUEST["find"])) {
 	$find = $_REQUEST["find"];
@@ -80,32 +80,32 @@ if (isset($_REQUEST["find"])) {
 	$find = '';
 }
 
-$smarty->assign('find', $find);
+$gBitSmarty->assign('find', $find);
 
-$smarty->assign_by_ref('sort_mode', $sort_mode);
+$gBitSmarty->assign_by_ref('sort_mode', $sort_mode);
 $quicktags = $quicktagslib->list_quicktags($format_guid, $offset, $maxRecords, $sort_mode, $find);
 
 $cant_pages = ceil($quicktags["cant"] / $maxRecords);
-$smarty->assign_by_ref('cant_pages', $cant_pages);
-$smarty->assign('actual_page', 1 + ($offset / $maxRecords));
+$gBitSmarty->assign_by_ref('cant_pages', $cant_pages);
+$gBitSmarty->assign('actual_page', 1 + ($offset / $maxRecords));
 
 if ($quicktags["cant"] > ($offset + $maxRecords)) {
-	$smarty->assign('next_offset', $offset + $maxRecords);
+	$gBitSmarty->assign('next_offset', $offset + $maxRecords);
 } else {
-	$smarty->assign('next_offset', -1);
+	$gBitSmarty->assign('next_offset', -1);
 }
 
 // If offset is > 0 then prev_offset
 if ($offset > 0) {
-	$smarty->assign('prev_offset', $offset - $maxRecords);
+	$gBitSmarty->assign('prev_offset', $offset - $maxRecords);
 } else {
-	$smarty->assign('prev_offset', -1);
+	$gBitSmarty->assign('prev_offset', -1);
 }
 
-$smarty->assign_by_ref('quicktags', $quicktags["data"]);
+$gBitSmarty->assign_by_ref('quicktags', $quicktags["data"]);
 
 $quicktags_preview = $quicktagslib->list_quicktags($format_guid, '', '', 'tagpos_asc','');
-$smarty->assign_by_ref('quicktags_preview', $quicktags_preview["data"]);
+$gBitSmarty->assign_by_ref('quicktags_preview', $quicktags_preview["data"]);
 
 // Display the template
 $gBitSystem->display( 'bitpackage:quicktags/admin_quicktags.tpl');
