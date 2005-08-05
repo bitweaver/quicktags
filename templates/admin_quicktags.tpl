@@ -1,6 +1,6 @@
 {strip}
 <div class="floaticon">
-	<a href="{$gBitLoc.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?format_guid={$format_guid}">{biticon ipackage=liberty iname=new iexplain="new quicktag"}</a>
+	<a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?format_guid={$format_guid}">{biticon ipackage=liberty iname=new iexplain="new quicktag"}</a>
 	{bithelp}
 </div>
 
@@ -76,10 +76,10 @@
 			</tr>
 			<tr><td colspan="5"><form action=""><div><textarea type="text" cols="50" rows="3" id="test_line"></textarea><br /><input type="reset" name="clear" value="{tr}clear{/tr}" /></div></form></td></tr>
 			<tr>
-				<th><a href="{$gBitLoc.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={if $sort_mode eq 'tagpos_desc'}tagpos_asc{else}tagpos_desc{/if}">{tr}Position{/tr}</a></th>
-				<th><a href="{$gBitLoc.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={if $sort_mode eq 'taglabel_desc'}taglabel_asc{else}taglabel_desc{/if}">{tr}Label{/tr}</a></th>
-				<th><a href="{$gBitLoc.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={if $sort_mode eq 'taginsert_desc'}taginsert_asc{else}taginsert_desc{/if}">{tr}Insert{/tr}</a></th>
-				<th><a href="{$gBitLoc.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={if $sort_mode eq 'tagicon_desc'}tagicon_asc{else}tagicon_desc{/if}">{tr}Icon{/tr}</a></th>
+				<th><a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={if $sort_mode eq 'tagpos_desc'}tagpos_asc{else}tagpos_desc{/if}">{tr}Position{/tr}</a></th>
+				<th><a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={if $sort_mode eq 'taglabel_desc'}taglabel_asc{else}taglabel_desc{/if}">{tr}Label{/tr}</a></th>
+				<th><a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={if $sort_mode eq 'taginsert_desc'}taginsert_asc{else}taginsert_desc{/if}">{tr}Insert{/tr}</a></th>
+				<th><a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={if $sort_mode eq 'tagicon_desc'}tagicon_asc{else}tagicon_desc{/if}">{tr}Icon{/tr}</a></th>
 				<th>{tr}action{/tr}</th>
 			</tr>
 			{foreach item=tag from=$quicktags.$format_guid}
@@ -89,8 +89,8 @@
 					<td>{$tag.taginsert|escape}</td>
 					<td>{if $tag.taglabel ne 'newline'}{biticon iforce=icon ipackage="quicktags" iname=$tag.iconpath iexplain="`$tag.taglabel`"}{/if} {$tag.iconpath}</td>
 					<td class="actionicon">
-					   <a href="{$gBitLoc.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={$sort_mode}&amp;tag_id={$tag.tag_id}">{biticon ipackage=liberty iname="edit" iexplain="edit"}</a>
-					   <a href="{$gBitLoc.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={$sort_mode}&amp;remove={$tag.tag_id}">{biticon ipackage=liberty iname="delete" iexplain="remove"}</a>
+					   <a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={$sort_mode}&amp;tag_id={$tag.tag_id}">{biticon ipackage=liberty iname="edit" iexplain="edit"}</a>
+					   <a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={$sort_mode}&amp;remove={$tag.tag_id}">{biticon ipackage=liberty iname="delete" iexplain="remove"}</a>
 					</td>
 				</tr>
 			{/foreach}
