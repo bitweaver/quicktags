@@ -3,7 +3,7 @@
 * quicktags package
 *
 * @author   
-* @version  $Revision: 1.1.1.1.2.2 $
+* @version  $Revision: 1.1.1.1.2.3 $
 * @package  quicktags
 */
 
@@ -33,10 +33,10 @@ class QuickTagsLib extends BitBase {
 		} else {
 			$mid = '';
 		}
-		$query = "select * from `".BIT_DB_PREFIX."tiki_quicktags` $mid order by ".$this->getDb()->convert_sortmode($sort_mode);
+		$query = "select * from `".BIT_DB_PREFIX."tiki_quicktags` $mid order by ".$this->mDb->convert_sortmode($sort_mode);
 		$query_cant = "select count(*) from `".BIT_DB_PREFIX."tiki_quicktags` $mid";
-		$result = $this->getDb()->query($query,$bindvars,$maxRecords,$offset);
-		$cant = $this->getDb()->getOne($query_cant,$bindvars);
+		$result = $this->mDb->query($query,$bindvars,$maxRecords,$offset);
+		$cant = $this->mDb->getOne($query_cant,$bindvars);
 		$tmp = array();
 		while ($res = $result->fetchRow()) {
 			$res['iconpath'] = $res['tagicon'];
@@ -65,26 +65,26 @@ class QuickTagsLib extends BitBase {
 		if ($tag_id) {
 			$bindvars=array($format_guid, $tagpos, $taglabel, $taginsert, $tagicon, $tag_id);
 			$query = "update `".BIT_DB_PREFIX."tiki_quicktags` set `format_guid`=?,`tagpos`=?,`taglabel`=?,`taginsert`=?,`tagicon`=? where `tag_id`=?";
-			$result = $this->getDb()->query($query,$bindvars);
+			$result = $this->mDb->query($query,$bindvars);
 		} else {
 			$bindvars=array($format_guid, $tagpos, $taglabel, $taginsert, $tagicon);
 			$query = "delete from `".BIT_DB_PREFIX."tiki_quicktags` where `format_guid`=? and `tagpos`=? and `taglabel`=? and `taginsert`=? and `tagicon`=?";
-			$result = $this->getDb()->query($query,$bindvars);
+			$result = $this->mDb->query($query,$bindvars);
 			$query = "insert into `".BIT_DB_PREFIX."tiki_quicktags`(`format_guid`,`tagpos`,`taglabel`,`taginsert`,`tagicon`) values(?,?,?,?,?)";
-			$result = $this->getDb()->query($query,$bindvars);
+			$result = $this->mDb->query($query,$bindvars);
 		}
 		return true;
 	}
 
 	function remove_quicktag($tag_id) {
 		$query = "delete from `".BIT_DB_PREFIX."tiki_quicktags` where `tag_id`=?";
-		$this->getDb()->query($query,array($tag_id));
+		$this->mDb->query($query,array($tag_id));
 		return true;
 	}
 
 	function get_quicktag($tag_id) {
 		$query = "select * from `".BIT_DB_PREFIX."tiki_quicktags` where `tag_id`=?";
-		$result = $this->getDb()->query($query,array($tag_id));
+		$result = $this->mDb->query($query,array($tag_id));
 		if (!$result->numRows()) return false;
 		$res = $result->fetchRow();
 		return $res;
