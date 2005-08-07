@@ -1,4 +1,4 @@
-{* $Header: /cvsroot/bitweaver/_bit_quicktags/templates/select_format.tpl,v 1.1 2005/06/19 05:01:29 bitweaver Exp $ *}
+{* $Header: /cvsroot/bitweaver/_bit_quicktags/templates/select_format.tpl,v 1.2 2005/08/07 17:43:44 squareing Exp $ *}
 
 <div class="admin quicktags">
 	<div class="header">
@@ -11,7 +11,7 @@
 				{if $plugin.plugin_type eq 'format'}
 					<div class="row">
 						{forminput}
-							<a href="{$gBitLoc.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?format_guid={$guid}">{$plugin.edit_label}</a>
+							<a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?format_guid={$guid}">{$plugin.edit_label}</a>
 							{formhelp note=$plugin.description}
 						{/forminput}
 					</div>
@@ -19,7 +19,7 @@
 			{/foreach}
 			{*<div class="row">
 				{forminput}
-					<a href="{$gBitLoc.QUICKTAGS_PGK_URL}admin/admin_data_quicktags.php">Data Plugins - not available yet</a>
+					<a href="{$smarty.const.QUICKTAGS_PGK_URL}admin/admin_data_quicktags.php">Data Plugins - not available yet</a>
 					{formhelp note="Here you can modify quicktag icons associated with data plugins. These use the same syntax regardless of format."}
 				{/forminput}
 			</div>*}
