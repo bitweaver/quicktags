@@ -28,6 +28,31 @@ $gBitInstaller->registerPackageInfo( QUICKTAGS_PKG_NAME, array(
 ) );
 
 $format_guids = array(
+	'markdown' => array(
+		array(	'5','bold',											'bold',				'__text__'),
+		array( '10','italic',										'italic',			"_text_"),
+		array( '30','spacer',										'spacer',			''),
+		array( '35','bullet list',									'list_bullet',		'* text'),
+		array( '40','enumerated list',								'list_enum',		'1. text'),
+		array( '55','spacer',										'spacer',			''),
+		array( '60','large heading',								'h1',				'# text'),
+		array( '65','medium heading',								'h2',				'## text'),
+		array( '70','small heading',								'h3',				'### text'),
+		array( '75','spacer',										'spacer',			''),
+		array( '90','horizontal line',								'hr',				'---'),
+		array('105','newline',										'',					''),
+		array('110','image',										'image',			'{img src= width= height= align= desc= link= }'),
+		array('115','spacer',										'spacer',			''),
+		array('120','table',										'table',			'use html table'),
+		array('130','spacer',										'spacer',			''),
+		array('135','wiki link',									'wiki_link',		'((text))'),
+		array('140','external link',								'ext_link',			'[text](http://example.com)'),
+		array('145','rss feed',										'rss',				'{rss id= }'),
+		array('150','tagline',										'tagline',			'{cookie}'),
+		array('155','spacer',										'spacer',			''),
+		array('170','table of contents (links to headings in page)','maketoc',			'{maketoc}'),
+		array('175','table of contents (if part of a book)',		'toc',				'{toc}')
+	),
 	'pearwiki_tiki' => array(
 		array(	'5','bold',											'bold',				'__text__'),
 		array( '10','italic',										'italic',			"\'\'text\'\'"),
@@ -177,8 +202,7 @@ $format_guids = array(
 );
 
 // Adjust italic tikiwiki entry to correct escape sequence
-if ( $gBitDbType == "firebird" || $gBitDbType == "mssql" )
-{
+if ( $gBitDbType == "firebird" || $gBitDbType == "mssql" ) {
 	$format_guids['pearwiki_tiki'][1][3] = "''''text''''";
 	$format_guids['tikiwiki'][1][3] = "''''text''''";
 }
