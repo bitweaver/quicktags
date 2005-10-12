@@ -182,6 +182,7 @@ $format_guids = array(
 		array( '80','title bar',									'title_bar',		'<div class="tikibar">text</div>'),
 		array( '85','box',											'box',				'<div class="tikibox">text</div>'),
 		array( '90','horizontal line',								'hr',				'<hr />'),
+		array( '93','new line',										'new_line',			'<br />'),
 		array( '95','create a new page in a multi-page post',		'new_page',			'...page...'),
 		array('100','center text',									'align_center',		'<div style="text-align:center;">text</div>'),
 		array('105','newline',										'',					''),

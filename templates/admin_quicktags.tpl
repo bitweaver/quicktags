@@ -10,7 +10,6 @@
 	</div>
 
 	<div class="body">
-
 		{form legend="Create/Edit QuickTags"}
 			<input type="hidden" name="tag_id" value="{$tag_id|escape}" />
 			<input type="hidden" name="offset" value="{$offset|escape}" />
@@ -59,22 +58,26 @@
 			</div>
 		{/form}
 
-		<h2>{tr}QuickTags{/tr}</h2>
+		<h2>{tr}Preview{/tr}</h2>
+		{foreach item=tag from=`$quicktags_preview.$format_guid`}
+			{if $tag.taglabel eq 'newline'}
+				<br />
+			{elseif $tag.taglabel eq 'spacer'}
+				{biticon iforce=icon ipackage=quicktags iname=$tag.tagicon class="quicktag icon" iexplain="`$tag.taglabel`"}
+			{else}
+				<a title="{tr}{$tag.taglabel}{/tr}" href="javascript:insertAt('test_line','{$tag.taginsert|escape:"htmlall"}');">{biticon iforce=icon ipackage=quicktags iname=$tag.tagicon class="quicktag icon" iexplain="`$tag.taglabel`"}</a>
+			{/if}
+		{/foreach}
+
+		<form action="">
+			<div>
+				<textarea cols="50" rows="3" id="test_line"></textarea><br />
+				<input type="reset" name="clear" value="{tr}Clear{/tr}" />
+			</div>
+		</form>
+
 		<table class="data">
-			<tr>
-				<td colspan="5" style="white-space:nowrap;">{tr}Preview{/tr}<br />
-					{foreach item=tag from=`$quicktags_preview.$format_guid`}
-						{if $tag.taglabel eq 'newline'}
-							<br />
-						{elseif $tag.taglabel eq 'spacer'}
-							{biticon iforce=icon ipackage=quicktags iname=$tag.tagicon class="quicktag icon" iexplain="`$tag.taglabel`"}
-						{else}
-							<a title="{tr}{$tag.taglabel}{/tr}" href="javascript:insertAt('test_line','{$tag.taginsert|escape:"htmlall"}');">{biticon iforce=icon ipackage=quicktags iname=$tag.tagicon class="quicktag icon" iexplain="`$tag.taglabel`"}</a>
-						{/if}
-					{/foreach}
-				</td>
-			</tr>
-			<tr><td colspan="5"><form action=""><div><textarea type="text" cols="50" rows="3" id="test_line"></textarea><br /><input type="reset" name="clear" value="{tr}clear{/tr}" /></div></form></td></tr>
+			<caption>{tr}QuickTags{/tr}</caption>
 			<tr>
 				<th><a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={if $sort_mode eq 'tagpos_desc'}tagpos_asc{else}tagpos_desc{/if}">{tr}Position{/tr}</a></th>
 				<th><a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={if $sort_mode eq 'taglabel_desc'}taglabel_asc{else}taglabel_desc{/if}">{tr}Label{/tr}</a></th>
