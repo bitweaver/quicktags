@@ -2,7 +2,7 @@
 
 $tables = array(
 
-'tiki_quicktags' => "
+'quicktags' => "
 	tag_id I4 AUTO PRIMARY,
 	format_guid C(16) NOTNULL,
 	tagpos I4,
@@ -211,7 +211,7 @@ if ( $gBitDbType == "firebird" || $gBitDbType == "mssql" ) {
 foreach( $format_guids as $fg => $qts ) {
 	foreach( $qts as $qt ) {
 		$gBitInstaller->registerSchemaDefault( QUICKTAGS_PKG_NAME, 
-			"INSERT INTO `".BIT_DB_PREFIX."tiki_quicktags`	(`format_guid`,`tagpos`,`taglabel`,`tagicon`,`taginsert`) VALUES ('$fg','$qt[0]','$qt[1]','$qt[2]','$qt[3]')"
+			"INSERT INTO `".BIT_DB_PREFIX."quicktags`	(`format_guid`,`tagpos`,`taglabel`,`tagicon`,`taginsert`) VALUES ('$fg','$qt[0]','$qt[1]','$qt[2]','$qt[3]')"
 		);
 	}
 }
