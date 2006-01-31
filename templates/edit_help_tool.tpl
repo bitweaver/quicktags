@@ -2,7 +2,7 @@
 {if $gContent->mInfo.format_guid}
 	{assign var=fg value=`$gContent->mInfo.format_guid`}
 {else}
-	{assign var=fg value=`$default_format`}
+	{assign var=fg value=`$gBitSystemPrefs.default_format`}
 {/if}
 
 {foreach from=$quicktags key=qtfg item=qt}
