@@ -79,7 +79,19 @@ array( 'QUERY' =>
 )),
 
 	)
-)
+),
+
+	'BWR1' => array(
+		'BWR2' => array(
+// de-tikify tables
+array( 'DATADICT' => array(
+	array( 'RENAMETABLE' => array(
+		'tiki_quicktags' => 'quicktags',
+	)),
+)),
+		)
+	),
+
 );
 
 if( isset( $upgrades[$gUpgradeFrom][$gUpgradeTo] ) ) {
