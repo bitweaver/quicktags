@@ -2,7 +2,7 @@
 {if $gContent->mInfo.format_guid}
 	{assign var=fg value=`$gContent->mInfo.format_guid`}
 {else}
-	{assign var=fg value=`$default_format`}
+	{assign var=fg value=`$gBitSystemPrefs.default_format`}
 {/if}
 
 {foreach from=$quicktags key=qtfg item=qt}
@@ -30,11 +30,11 @@
 			{if !$no_resize}
 				{biticon iforce=icon ipackage=quicktags iname='spacer' class="quicktag icon" iexplain="spacer"}
 
-				<a href="javascript:textareasize('{$textarea_id}', +10, 0, '{$textarea_id}')" title="{tr}Enlarge area height{/tr}">
+				<a href="javascript:textareasize('{$textarea_id}', +10)" title="{tr}Enlarge area height{/tr}">
 					{biticon iforce=icon class="quicktag icon" ipackage="wiki" iname="enlargeH" iexplain="Enlarge area height"}
 				</a>
 
-				<a href="javascript:textareasize('{$textarea_id}', -10, 0, '{$textarea_id}')" title="{tr}Reduce area height{/tr}">
+				<a href="javascript:textareasize('{$textarea_id}', -10)" title="{tr}Reduce area height{/tr}">
 					{biticon iforce=icon class="quicktag icon" ipackage="wiki" iname="reduceH" iexplain="Reduce area height"}
 				</a>
 			{/if}
