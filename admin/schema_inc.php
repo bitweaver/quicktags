@@ -22,9 +22,6 @@ foreach( array_keys( $tables ) AS $tableName ) {
 $gBitInstaller->registerPackageInfo( QUICKTAGS_PKG_NAME, array(
 	'description' => "Quicktags are configurable buttons displayed above textareas, which simplifies the addition of wiki tags.",
 	'license' => '<a href="http://www.gnu.org/licenses/licenses.html#LGPL">LGPL</a>',
-	'version' => '0.1',
-	'state' => 'stable',
-	'dependencies' => '',
 ) );
 
 $format_guids = array(
