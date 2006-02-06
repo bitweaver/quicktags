@@ -3,7 +3,7 @@
 * quicktags package
 *
 * @author   
-* @version  $Revision: 1.4 $
+* @version  $Revision: 1.5 $
 * @package  quicktags
 */
 
@@ -16,7 +16,7 @@ class QuickTagsLib extends BitBase {
 		BitBase::BitBase();
 	}
 
-	function list_quicktags($format_guid=NULL, $offset, $maxRecords, $sort_mode, $find) {
+	function list_quicktags($format_guid=NULL, $offset, $max_records, $sort_mode, $find) {
 		global $gLibertySystem;
 		$bindvars=array();
 		if ($find) {
@@ -35,7 +35,7 @@ class QuickTagsLib extends BitBase {
 		}
 		$query = "select * from `".BIT_DB_PREFIX."quicktags` $mid order by ".$this->mDb->convert_sortmode($sort_mode);
 		$query_cant = "select count(*) from `".BIT_DB_PREFIX."quicktags` $mid";
-		$result = $this->mDb->query($query,$bindvars,$maxRecords,$offset);
+		$result = $this->mDb->query($query,$bindvars,$max_records,$offset);
 		$cant = $this->mDb->getOne($query_cant,$bindvars);
 		$tmp = array();
 		while ($res = $result->fetchRow()) {
