@@ -1,4 +1,9 @@
 <?php
-	global $gBitSystem;
-	$gBitSystem->registerPackage( 'Quicktags', dirname( __FILE__ ).'/' );
+global $gBitSystem;
+
+$registerHash = array(
+	'package_name' => 'quicktags',
+	'package_path' => dirname( __FILE__ ).'/',
+);
+$gBitSystem->registerPackage( $registerHash );
 ?>
