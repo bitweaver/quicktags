@@ -1,7 +1,7 @@
 {strip}
 {if $gContent->mInfo.format_guid}
 	{assign var=fg value=`$gContent->mInfo.format_guid`}
-{else}
+{elseif !$fg}
 	{assign var=fg value=$gBitSystem->getConfig('default_format')}
 {/if}
 
