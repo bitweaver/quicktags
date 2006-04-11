@@ -1,11 +1,11 @@
 <?php
 
-// $Header: /cvsroot/bitweaver/_bit_quicktags/admin/index.php,v 1.2 2005/08/01 18:41:17 squareing Exp $
+// $Header: /cvsroot/bitweaver/_bit_quicktags/admin/index.php,v 1.3 2006/04/11 13:07:54 squareing Exp $
 
 // Initialization
 require_once( '../../bit_setup_inc.php' );
 
-$gBitSystem->verifyPermission( 'bit_p_admin' );
+$gBitSystem->verifyPermission( 'p_admin' );
 
 $gBitSmarty->assign_by_ref( 'gLibertySystem', $gLibertySystem );
 
