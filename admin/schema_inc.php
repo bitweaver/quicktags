@@ -22,9 +22,6 @@ foreach( array_keys( $tables ) AS $tableName ) {
 $gBitInstaller->registerPackageInfo( QUICKTAGS_PKG_NAME, array(
 	'description' => "Quicktags are configurable buttons displayed above textareas, which simplifies the addition of wiki tags.",
 	'license' => '<a href="http://www.gnu.org/licenses/licenses.html#LGPL">LGPL</a>',
-	'version' => '0.1',
-	'state' => 'stable',
-	'dependencies' => '',
 ) );
 
 $format_guids = array(
@@ -85,8 +82,6 @@ $format_guids = array(
 		array('145','rss feed',										'rss',				'{rss id= }'),
 		array('150','tagline',										'tagline',			'{cookie}'),
 		array('155','spacer',										'spacer',			''),
-		array('160','dynamic variable',								'dyn_vars',			'%text%'),
-		array('165','dynamic content',								'dyn_content',		'{content id= }'),
 		array('170','table of contents (links to headings in page)','maketoc',			'{maketoc}'),
 		array('175','table of contents (if part of a book)',		'toc',				'{toc}')
 	),
@@ -158,8 +153,6 @@ $format_guids = array(
 		array('145','rss feed',										'rss',				'{rss id= }'),
 		array('150','tagline',										'tagline',			'{cookie}'),
 		array('155','spacer',										'spacer',			''),
-		array('160','dynamic variable',								'dyn_vars',			'%text%'),
-		array('165','dynamic content',								'dyn_content',		'{content id= }'),
 		array('170','table of contents (links to headings in page)','maketoc',			'{maketoc}'),
 		array('175','table of contents (if part of a book)',		'toc',				'{toc}')
 	),
@@ -195,8 +188,6 @@ $format_guids = array(
 		array('145','rss feed',										'rss',				'{rss id= }'),
 		array('150','tagline',										'tagline',			'{cookie}'),
 		array('155','spacer',										'spacer',			''),
-		array('160','dynamic variable',								'dyn_vars',			'%text%'),
-		array('165','dynamic content',								'dyn_content',		'{content id= }'),
 		array('170','table of contents (links to headings in page)','maketoc',			'{maketoc}'),
 		array('175','table of contents (if part of a book)',		'toc',				'{toc}')
 	)
