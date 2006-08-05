@@ -3,7 +3,7 @@
 * quicktags package
 *
 * @author   
-* @version  $Revision: 1.5 $
+* @version  $Revision: 1.6 $
 * @package  quicktags
 */
 
@@ -33,8 +33,8 @@ class QuickTagsLib extends BitBase {
 		} else {
 			$mid = '';
 		}
-		$query = "select * from `".BIT_DB_PREFIX."quicktags` $mid order by ".$this->mDb->convert_sortmode($sort_mode);
-		$query_cant = "select count(*) from `".BIT_DB_PREFIX."quicktags` $mid";
+		$query = "SELECT * FROM `".BIT_DB_PREFIX."quicktags` $mid ORDER BY ".$this->mDb->convert_sortmode($sort_mode);
+		$query_cant = "SELECT COUNT(*) FROM `".BIT_DB_PREFIX."quicktags` $mid";
 		$result = $this->mDb->query($query,$bindvars,$max_records,$offset);
 		$cant = $this->mDb->getOne($query_cant,$bindvars);
 		$tmp = array();
@@ -45,6 +45,7 @@ class QuickTagsLib extends BitBase {
 		}
 		//vd($gLibertySystem->mPlugins);
 
+		$ret = array();
 		foreach( $gLibertySystem->mPlugins as $plugin ) {
 			if( $plugin['plugin_type'] == 'format' ) {
 				foreach( $tmp as $qt ) {
