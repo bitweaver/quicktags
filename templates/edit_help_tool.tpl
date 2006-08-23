@@ -7,7 +7,7 @@
 
 {foreach from=$quicktags key=qtfg item=qt}
 	{if $gLibertySystem->mPlugins.$qtfg.is_active =='y'}
-		<div id="qt{$qtfg}" style="display:{if $qtfg eq $fg}block{else}none{/if}">
+		<div id="qt{$textarea_id}{$qtfg}" style="display:{if $qtfg eq $fg}block{else}none{/if}">
 			{if $gBitSystem->isPackageActive( 'tinymce' ) and !$gBitSystem->isFeatureActive( 'tinymce_ask' ) and $fg eq 'bithtml' and $qtfg eq 'bithtml' and $browser_supports_tinymce}
 			{else}
 				{section name=qtg loop=$qt}
