@@ -22,14 +22,14 @@
 					{/if}
 				{/section}
 
-				{biticon iforce=icon ipackage=quicktags iname='spacer' class="quicktag icon" iexplain="spacer"}
+				{biticon iforce=icon ipackage=quicktags iname="spacer" class="quicktag icon" iexplain="spacer"}
 
 				<a title="{tr}special characters{/tr}" href="#" onclick="javascript:window.open('{$smarty.const.QUICKTAGS_PKG_URL}special_chars.php?textarea_id={$textarea_id}','','menubar=no,width=252,height=35');">
 					{biticon iforce=icon ipackage="quicktags" iname="special_chars" class="quicktag icon" iexplain="special characters"}
 				</a>
 
 				{if !$no_resize}
-					{biticon iforce=icon ipackage=quicktags iname='spacer' class="quicktag icon" iexplain="spacer"}
+					{biticon iforce=icon ipackage=quicktags iname="spacer" class="quicktag icon" iexplain="spacer"}
 
 					<a href="javascript:textareasize('{$textarea_id}', +10)" title="{tr}Enlarge area height{/tr}">
 						{biticon iforce=icon class="quicktag icon" ipackage="wiki" iname="enlargeH" iexplain="Enlarge area height"}
