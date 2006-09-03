@@ -1,6 +1,6 @@
 {strip}
 <div class="floaticon">
-	<a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?format_guid={$format_guid}">{biticon ipackage=liberty iname=new iexplain="new quicktag"}</a>
+	<a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?format_guid={$format_guid}">{biticon ipackage="icons" iname="document-new" iexplain="new quicktag"}</a>
 	{bithelp}
 </div>
 
@@ -92,8 +92,8 @@
 					<td>{$tag.taginsert|escape}</td>
 					<td>{if $tag.taglabel ne 'newline'}{biticon iforce=icon ipackage="quicktags" iname=$tag.iconpath iexplain="`$tag.taglabel`"}{/if} {$tag.iconpath}</td>
 					<td class="actionicon">
-					   <a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={$sort_mode}&amp;tag_id={$tag.tag_id}">{biticon ipackage=liberty iname="edit" iexplain="edit"}</a>
-					   <a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={$sort_mode}&amp;remove={$tag.tag_id}">{biticon ipackage=liberty iname="delete" iexplain="remove"}</a>
+					   <a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={$sort_mode}&amp;tag_id={$tag.tag_id}">{biticon ipackage="icons" iname="accessories-text-editor" iexplain="edit"}</a>
+					   <a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={$sort_mode}&amp;remove={$tag.tag_id}">{biticon ipackage="icons" iname="edit-delete" iexplain="remove"}</a>
 					</td>
 				</tr>
 			{/foreach}
