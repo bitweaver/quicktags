@@ -89,6 +89,17 @@ array( 'DATADICT' => array(
 		'tiki_quicktags' => 'quicktags',
 	)),
 )),
+
+// we need to remove some entries since they have been moved to the plugins
+// ideally users should re-install quicktags
+array( 'QUERY' =>
+	array( 'SQL92' => array(
+		"DELETE FROM `".BIT_DB_PREFIX."quicktags` WHERE `taglabel`='maketoc'",
+		"DELETE FROM `".BIT_DB_PREFIX."quicktags` WHERE `taglabel`='toc'",
+		"DELETE FROM `".BIT_DB_PREFIX."quicktags` WHERE `taglabel`='rss'",
+		"DELETE FROM `".BIT_DB_PREFIX."quicktags` WHERE `taglabel`='image'",
+	)),
+),
 		)
 	),
 
