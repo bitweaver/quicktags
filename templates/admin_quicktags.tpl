@@ -63,9 +63,9 @@
 			{if $tag.taglabel eq 'newline'}
 				<br />
 			{elseif $tag.taglabel eq 'spacer'}
-				{biticon iforce=icon ipackage=quicktags iname=$tag.tagicon class="quicktag icon" iexplain="`$tag.taglabel`"}
+				{biticon iforce=icon ipackage=quicktags iname=$tag.tagicon iclass="quicktag icon" iexplain="`$tag.taglabel`"}
 			{else}
-				<a title="{tr}{$tag.taglabel}{/tr}" href="javascript:insertAt('test_line','{$tag.taginsert|escape:"htmlall"}');">{biticon iforce=icon ipackage=quicktags iname=$tag.tagicon class="quicktag icon" iexplain="`$tag.taglabel`"}</a>
+				<a title="{tr}{$tag.taglabel}{/tr}" href="javascript:insertAt('test_line','{$tag.taginsert|escape:"htmlall"}');">{biticon iforce=icon ipackage=quicktags iname=$tag.tagicon iclass="quicktag icon" iexplain="`$tag.taglabel`"}</a>
 			{/if}
 		{/foreach}
 
