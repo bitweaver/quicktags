@@ -28,7 +28,7 @@
 
 {foreach from=$gLibertySystem->mPlugins item=plugin}
 	{if $plugin.is_active == 'y' and $plugin.taginsert and $plugin.biticon}
-		<a onmouseover="$('quicktitle').innerHTML='{$plugin.title}: {$plugin.taginsert|escape:"javascript"|escape:"htmlall"}'" title="{$plugin.title}" href="javascript:insertAt('{$textarea_id}','{$plugin.taginsert|escape:"javascript"|escape:"htmlall"}');">
+		<a onmouseover="$('quicktitle').innerHTML='{$plugin.title|escape:"javascript"}: {$plugin.taginsert|escape:"javascript"|escape:"htmlall"}'" title="{$plugin.title|escape}" href="javascript:insertAt('{$textarea_id}','{$plugin.taginsert|escape:"javascript"|escape:"htmlall"}');">
 			{eval var=`$plugin.biticon`}
 		</a>
 	{/if}
