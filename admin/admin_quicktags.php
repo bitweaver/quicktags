@@ -1,5 +1,5 @@
 <?php
-// $Header: /cvsroot/bitweaver/_bit_quicktags/admin/admin_quicktags.php,v 1.5 2007/01/06 11:02:10 squareing Exp $
+// $Header: /cvsroot/bitweaver/_bit_quicktags/admin/admin_quicktags.php,v 1.6 2007/01/06 11:04:44 squareing Exp $
 
 require_once( '../../bit_setup_inc.php' );
 $gBitSystem->verifyPermission( 'p_admin' );
@@ -23,7 +23,7 @@ if( isset( $_REQUEST["remove"] )) {
 }
 
 if( isset( $_REQUEST["save"] )) {
-	$gQuicktags->replaceQuicktag( $_REQUEST );
+	$gQuicktags->store( $_REQUEST );
 }
 
 // get list of quicktags

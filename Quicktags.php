@@ -3,7 +3,7 @@
 * quicktags package
 *
 * @author   
-* @version  $Revision: 1.1 $
+* @version  $Revision: 1.2 $
 * @package  quicktags
 */
 
@@ -28,7 +28,6 @@ class QuickTags extends BitBase {
 	 * @access public
 	 * @return TRUE on success, FALSE on failure - mErrors will contain reason for failure
 	 */
-	//function getList($format_guid=NULL, $offset, $max_records, $sort_mode, $find) {
 	function getList( &$pListHash ) {
 		global $gLibertySystem;
 
@@ -80,14 +79,13 @@ class QuickTags extends BitBase {
 	}
 
 	/**
-	 * replaceQuicktag 
+	 * store 
 	 * 
 	 * @param array $pParamHash 
 	 * @access public
 	 * @return TRUE on success, FALSE on failure - mErrors will contain reason for failure
 	 */
-	//function replaceQuicktag($tag_id, $format_guid, $tagpos, $taglabel, $taginsert, $tagicon ) {
-	function replaceQuicktag( $pParamHash ) {
+	function store( $pParamHash ) {
 		if( $this->verify( $pParamHash )) {
 			if( @BitBase::verifyId( $pParamHash['tag_id'] )) {
 				$this->mDb->associateUpdate( BIT_DB_PREFIX."quicktags", $pParamHash['store_quicktag'], array( 'tag_id' => $pParamHash['tag_id'] ));
