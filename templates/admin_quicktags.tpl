@@ -1,6 +1,6 @@
 {strip}
 <div class="floaticon">
-	<a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?format_guid={$format_guid}">{biticon ipackage="icons" iname="document-new" iexplain="new quicktag"}</a>
+	<a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?format_guid={$smarty.request.format_guid}">{biticon ipackage="icons" iname="document-new" iexplain="new quicktag"}</a>
 	{bithelp}
 </div>
 
@@ -11,10 +11,8 @@
 
 	<div class="body">
 		{form legend="Create/Edit QuickTags"}
-			<input type="hidden" name="tag_id" value="{$tag_id|escape}" />
-			<input type="hidden" name="offset" value="{$offset|escape}" />
-			<input type="hidden" name="sort_mode" value="{$sort_mode|escape}" />
-			<input type="hidden" name="format_guid" value="{$format_guid}" />
+			<input type="hidden" name="tag_id" value="{$smarty.request.tag_id}" />
+			<input type="hidden" name="format_guid" value="{$smarty.request.format_guid}" />
 
 			<div class="row">
 				{forminput}
@@ -59,13 +57,13 @@
 		{/form}
 
 		<h2>{tr}Preview{/tr}</h2>
-		{foreach item=tag from=`$quicktags_preview.$format_guid`}
+		{foreach item=tag from=$quicktags_preview}
 			{if $tag.taglabel eq 'newline'}
 				<br />
 			{elseif $tag.taglabel eq 'spacer'}
 				{biticon iforce=icon ipackage=quicktags iname=$tag.tagicon iclass="quicktag icon" iexplain="`$tag.taglabel`"}
 			{else}
-				<a title="{tr}{$tag.taglabel}{/tr}" href="javascript:insertAt('test_line','{$tag.taginsert|escape:"htmlall"}');">{biticon iforce=icon ipackage=quicktags iname=$tag.tagicon iclass="quicktag icon" iexplain="`$tag.taglabel`"}</a>
+				<a title="{tr}{$tag.taglabel}{/tr}" href="javascript:insertAt('test_line','{$tag.taginsert|escape:"javascript"}');">{biticon iforce=icon ipackage=quicktags iname=$tag.tagicon iclass="quicktag icon" iexplain="`$tag.taglabel`"}</a>
 			{/if}
 		{/foreach}
 
@@ -79,28 +77,27 @@
 		<table class="data">
 			<caption>{tr}QuickTags{/tr}</caption>
 			<tr>
-				<th><a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={if $sort_mode eq 'tagpos_desc'}tagpos_asc{else}tagpos_desc{/if}">{tr}Position{/tr}</a></th>
-				<th><a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={if $sort_mode eq 'taglabel_desc'}taglabel_asc{else}taglabel_desc{/if}">{tr}Label{/tr}</a></th>
-				<th><a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={if $sort_mode eq 'taginsert_desc'}taginsert_asc{else}taginsert_desc{/if}">{tr}Insert{/tr}</a></th>
-				<th><a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={if $sort_mode eq 'tagicon_desc'}tagicon_asc{else}tagicon_desc{/if}">{tr}Icon{/tr}</a></th>
-				<th>{tr}action{/tr}</th>
+				<th>{smartlink format_guid=$smarty.request.format_guid ititle="Position" isort=tagpos idefault=1 icontrol=$listInfo}</th>
+				<th>{smartlink format_guid=$smarty.request.format_guid ititle="Label" isort=taglabel icontrol=$listInfo}</th>
+				<th>{smartlink format_guid=$smarty.request.format_guid ititle="Insert" isort=taginsert icontrol=$listInfo}</th>
+				<th>{smartlink format_guid=$smarty.request.format_guid ititle="Icon" isort=tagicon icontrol=$listInfo}</th>
+				<th>{tr}Action{/tr}</th>
 			</tr>
-			{foreach item=tag from=$quicktags.$format_guid}
-				<tr class="{cycle values="odd,even" }">
+			{foreach item=tag from=$quicktags}
+				<tr class="{cycle values="odd,even"}">
 					<td>{$tag.tagpos}</td>
 					<td>{$tag.taglabel}</td>
 					<td>{$tag.taginsert|escape}</td>
 					<td>{if $tag.taglabel ne 'newline'}{biticon iforce=icon ipackage="quicktags" iname=$tag.iconpath iexplain="`$tag.taglabel`"}{/if} {$tag.iconpath}</td>
 					<td class="actionicon">
-						<a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={$sort_mode}&amp;tag_id={$tag.tag_id}&amp;format_guid={$format_guid}">{biticon ipackage="icons" iname="accessories-text-editor" iexplain="edit"}</a>
-						<a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?offset={$offset}&amp;sort_mode={$sort_mode}&amp;remove={$tag.tag_id}&amp;format_guid={$format_guid}">{biticon ipackage="icons" iname="edit-delete" iexplain="remove"}</a>
+						{smartlink format_guid=$smarty.request.format_guid tag_id=$tag.tag_id ititle="Edit" icontrol=$listInfo ibiticon="icons/accessories-text-editor"}
+						{smartlink format_guid=$smarty.request.format_guid remove=$tag.tag_id ititle="Remove" icontrol=$listInfo ibiticon="icons/edit-delete"}
 					</td>
 				</tr>
 			{/foreach}
 		</table>
 
-		{pagination format_guid=$format_guid}
-
+		{pagination format_guid=$smarty.request.format_guid}
 	</div><!-- end .body -->
 </div><!-- end .quicktags -->
 {/strip}

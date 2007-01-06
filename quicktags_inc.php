@@ -3,7 +3,7 @@
 * quicktags package
 *
 * @author   
-* @version  $Revision: 1.3 $
+* @version  $Revision: 1.4 $
 * @package  quicktags
 * @subpackage  functions
 */
@@ -11,7 +11,12 @@
 /**
  * required include
  */
-include_once( QUICKTAGS_PKG_PATH.'quicktags_lib.php' );
-$quicktags = $quicktagslib->list_quicktags(NULL,0,-1,'tagpos_asc','');
-$gBitSmarty->assign_by_ref('quicktags', $quicktags["data"]);
+include_once( QUICKTAGS_PKG_PATH.'Quicktags.php' );
+$gQuicktags = new QuickTags();
+$listHash = array(
+	'max_records' => -1,
+	'sort_mode' => 'tagpos_asc',
+);
+$quicktags = $gQuicktags->getList( $listHash );
+$gBitSmarty->assign_by_ref( 'quicktags', $quicktags );
 ?>
