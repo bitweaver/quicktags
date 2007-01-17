@@ -1,5 +1,5 @@
 <?php
-// $Header: /cvsroot/bitweaver/_bit_quicktags/admin/admin_quicktags.php,v 1.6 2007/01/06 11:04:44 squareing Exp $
+// $Header: /cvsroot/bitweaver/_bit_quicktags/admin/admin_quicktags.php,v 1.7 2007/01/17 15:26:41 squareing Exp $
 
 require_once( '../../bit_setup_inc.php' );
 $gBitSystem->verifyPermission( 'p_admin' );
@@ -33,9 +33,9 @@ $gBitSmarty->assign( 'quicktags', $quicktags[$_REQUEST['format_guid']] );
 $gBitSmarty->assign( 'listInfo', $listHash['listInfo'] );
 
 // preview the saved settings
-$listHash['sort_mode'] = 'tagpos_asc';
-$listHash['max_records'] = -1;
-$quicktags_preview = $gQuicktags->getList( $listHash );
+$previewList['sort_mode'] = 'tagpos_asc';
+$previewList['max_records'] = -1;
+$quicktags_preview = $gQuicktags->getList( $previewList );
 $gBitSmarty->assign( 'quicktags_preview', $quicktags_preview[$_REQUEST['format_guid']] );
 
 // Display the template
