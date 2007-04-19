@@ -3,7 +3,7 @@
 * quicktags package
 *
 * @author   
-* @version  $Revision: 1.4 $
+* @version  $Revision: 1.5 $
 * @package  quicktags
 * @subpackage  functions
 */
@@ -11,6 +11,7 @@
 /**
  * required include
  */
+global $gBitSmarty;
 include_once( QUICKTAGS_PKG_PATH.'Quicktags.php' );
 $gQuicktags = new QuickTags();
 $listHash = array(
