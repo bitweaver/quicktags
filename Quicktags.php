@@ -3,13 +3,12 @@
 * quicktags package
 *
 * @author   
-* @version  $Revision: 1.2 $
+* @version  $Revision: 1.3 $
 * @package  quicktags
 */
 
 /**
  * @package  quicktags
- * @subpackage  QuickTags
  */
 class QuickTags extends BitBase {
 	/**
