@@ -36,7 +36,7 @@
 
 {biticon iforce=icon ipackage=quicktags iname="spacer" iclass="quicktag icon" iexplain="spacer"}
 
-<a onmouseover="$('quicktitle').innerHTML='{tr}Secial Characters{/tr}'" title="{tr}Special Characters{/tr}" href="#" onclick="javascript:window.open('{$smarty.const.QUICKTAGS_PKG_URL}special_chars.php?textarea_id={$textarea_id}','','menubar=no,width=252,height=35');">
+<a onmouseover="$('quicktitle').innerHTML='{tr}Special Characters{/tr}'" title="{tr}Special Characters{/tr}" href="#" onclick="javascript:window.open('{$smarty.const.QUICKTAGS_PKG_URL}special_chars.php?textarea_id={$textarea_id}','','menubar=no,width=252,height=35');">
 	{biticon iforce=icon ipackage="quicktags" iname="special_chars" iclass="quicktag icon" iexplain="special characters"}
 </a>
 
