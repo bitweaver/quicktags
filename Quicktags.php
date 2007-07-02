@@ -3,7 +3,7 @@
 * quicktags package
 *
 * @author   
-* @version  $Revision: 1.3 $
+* @version  $Revision: 1.4 $
 * @package  quicktags
 */
 
@@ -34,7 +34,7 @@ class QuickTags extends BitBase {
 			$pListHash['sort_mode'] = 'tagpos_asc';
 		}
 
-		LibertyContent::prepGetList( $pListHash );
+		LibertyBase::prepGetList( $pListHash );
 		$bindvars = array();
 
 		if( !empty( $pListHash['find'] ) ) {
