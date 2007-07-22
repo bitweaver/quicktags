@@ -43,12 +43,12 @@
 {if !$no_resize}
 	{biticon ipackage=quicktags iname="spacer" ilocation="quicktag" iexplain="spacer"}
 
-	<a onmouseover="$('quicktitle').innerHTML='{tr}Enlarge area hight{/tr}'" href="javascript:textareasize('{$textarea_id}', +10)" title="{tr}Enlarge area height{/tr}">
-		{biticon ilocation="quicktag" ipackage="quicktags" iname="enlargeH" iexplain="Enlarge area height"}
+	<a onmouseover="$('quicktitle').innerHTML='{tr}Enlarge textarea height{/tr}'" href="javascript:textareasize('{$textarea_id}', +10)" title="{tr}Enlarge textarea height{/tr}">
+		{biticon ilocation="quicktag" ipackage="quicktags" iname="enlargeH" iexplain="Enlarge textarea height"}
 	</a>
 
-	<a onmouseover="$('quicktitle').innerHTML='{tr}Reduce area hight{/tr}'" href="javascript:textareasize('{$textarea_id}', -10)" title="{tr}Reduce area height{/tr}">
-		{biticon ilocation="quicktag" ipackage="quicktags" iname="reduceH" iexplain="Reduce area height"}
+	<a onmouseover="$('quicktitle').innerHTML='{tr}Reduce textarea height{/tr}'" href="javascript:textareasize('{$textarea_id}', -10)" title="{tr}Reduce textarea height{/tr}">
+		{biticon ilocation="quicktag" ipackage="quicktags" iname="reduceH" iexplain="Reduce textarea height"}
 	</a>
 {/if}
 
