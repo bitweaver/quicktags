@@ -1,5 +1,5 @@
 <?php
-// $Header: /cvsroot/bitweaver/_bit_quicktags/admin/admin_quicktags.php,v 1.7 2007/01/17 15:26:41 squareing Exp $
+// $Header: /cvsroot/bitweaver/_bit_quicktags/admin/admin_quicktags.php,v 1.8 2008/06/25 22:21:21 spiderr Exp $
 
 require_once( '../../bit_setup_inc.php' );
 $gBitSystem->verifyPermission( 'p_admin' );
@@ -39,5 +39,5 @@ $quicktags_preview = $gQuicktags->getList( $previewList );
 $gBitSmarty->assign( 'quicktags_preview', $quicktags_preview[$_REQUEST['format_guid']] );
 
 // Display the template
-$gBitSystem->display( 'bitpackage:quicktags/admin_quicktags.tpl');
+$gBitSystem->display( 'bitpackage:quicktags/admin_quicktags.tpl', NULL, array( 'display_mode' => 'admin' ));
 ?>
