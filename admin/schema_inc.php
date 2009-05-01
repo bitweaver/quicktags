@@ -45,7 +45,7 @@ $format_guids = array(
 	),
 	'pearwiki_tiki' => array(
 		array(	'5','bold',											'bold',				'__text__'),
-		array( '10','italic',										'italic',			"\'\'text\'\'"),
+		array( '10','italic',										'italic',			'\'\'text\'\''),
 		array( '15','underline',									'underline',		'===text==='),
 		array( '20','colored text',									'colored_text',		'~~red:text~~'),
 		array( '25','colored background',							'colored_background','++yellow:text++'),
@@ -72,7 +72,7 @@ $format_guids = array(
 	),
 	'tikiwiki' => array(
 		array(	'5','bold',											'bold',				'__text__'),
-		array( '10','italic',										'italic',			"\'\'text\'\'"),
+		array( '10','italic',										'italic',			'\'\'text\'\''),
 		array( '15','underline',									'underline',		'===text==='),
 		array( '20','colored text',									'colored_text',		'~~red:text~~'),
 		array( '25','colored background',							'colored_background','++yellow:text++'),
