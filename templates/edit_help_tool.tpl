@@ -16,7 +16,7 @@
 					{elseif $qt[qtg].taglabel eq 'spacer'}
 						{biticon ipackage=quicktags iname=$qt[qtg].tagicon ilocation="quicktag" iexplain="`$qt[qtg].taglabel`"}
 					{else}
-						<a onmouseover="$('quicktitle').innerHTML='{$qt[qtg].taglabel}: {$qt[qtg].taginsert|escape:"javascript"|escape:"htmlall"}'" title="{tr}{$qt[qtg].taglabel}{/tr}" href="javascript:insertAt('{$textarea_id}','{$qt[qtg].taginsert|escape:"javascript"|escape:"htmlall"}');">
+						<a onmouseover="document.getElementById('quicktitle').innerHTML='{$qt[qtg].taglabel}: {$qt[qtg].taginsert|escape:"javascript"|escape:"htmlall"}'" title="{tr}{$qt[qtg].taglabel}{/tr}" href="javascript:insertAt('{$textarea_id}','{$qt[qtg].taginsert|escape:"javascript"|escape:"htmlall"}');">
 							{biticon ipackage=quicktags iname=$qt[qtg].tagicon ilocation="quicktag" iexplain="`$qt[qtg].taglabel`"}
 						</a>
 					{/if}
@@ -28,7 +28,7 @@
 
 {foreach from=$gLibertySystem->mPlugins item=plugin}
 	{if $plugin.is_active == 'y' and $plugin.taginsert and $plugin.biticon}
-		<a onmouseover="$('quicktitle').innerHTML='{$plugin.title|escape:"javascript"}: {$plugin.taginsert|escape:"javascript"|escape:"htmlall"}'" title="{$plugin.title|escape}" href="javascript:insertAt('{$textarea_id}','{$plugin.taginsert|escape:"javascript"|escape:"htmlall"}');">
+		<a onmouseover="document.getElementById('quicktitle').innerHTML='{$plugin.title|escape:"javascript"}: {$plugin.taginsert|escape:"javascript"|escape:"htmlall"}'" title="{$plugin.title|escape}" href="javascript:insertAt('{$textarea_id}','{$plugin.taginsert|escape:"javascript"|escape:"htmlall"}');">
 			{eval var=`$plugin.biticon`}
 		</a>
 	{/if}
@@ -36,18 +36,18 @@
 
 {biticon ipackage=quicktags iname="spacer" ilocation="quicktag" iexplain="spacer"}
 
-<a onmouseover="$('quicktitle').innerHTML='{tr}Special Characters{/tr}'" title="{tr}Special Characters{/tr}" href="#" onclick="javascript:window.open('{$smarty.const.QUICKTAGS_PKG_URL}special_chars.php?textarea_id={$textarea_id}','','menubar=no,width=252,height=35');">
+<a onmouseover="document.getElementById('quicktitle').innerHTML='{tr}Special Characters{/tr}'" title="{tr}Special Characters{/tr}" href="#" onclick="javascript:window.open('{$smarty.const.QUICKTAGS_PKG_URL}special_chars.php?textarea_id={$textarea_id}','','menubar=no,width=252,height=35');">
 	{biticon ipackage="quicktags" iname="special_chars" ilocation="quicktag" iexplain="special characters"}
 </a>
 
 {if !$no_resize}
 	{biticon ipackage=quicktags iname="spacer" ilocation="quicktag" iexplain="spacer"}
 
-	<a onmouseover="$('quicktitle').innerHTML='{tr}Enlarge textarea height{/tr}'" href="javascript:textareasize('{$textarea_id}', +10)" title="{tr}Enlarge textarea height{/tr}">
+	<a onmouseover="document.getElementById('quicktitle').innerHTML='{tr}Enlarge textarea height{/tr}'" href="javascript:textareasize('{$textarea_id}', +10)" title="{tr}Enlarge textarea height{/tr}">
 		{biticon ilocation="quicktag" ipackage="quicktags" iname="enlargeH" iexplain="Enlarge textarea height"}
 	</a>
 
-	<a onmouseover="$('quicktitle').innerHTML='{tr}Reduce textarea height{/tr}'" href="javascript:textareasize('{$textarea_id}', -10)" title="{tr}Reduce textarea height{/tr}">
+	<a onmouseover="document.getElementById('quicktitle').innerHTML='{tr}Reduce textarea height{/tr}'" href="javascript:textareasize('{$textarea_id}', -10)" title="{tr}Reduce textarea height{/tr}">
 		{biticon ilocation="quicktag" ipackage="quicktags" iname="reduceH" iexplain="Reduce textarea height"}
 	</a>
 {/if}
