@@ -3,7 +3,7 @@
 * quicktags package
 *
 * @author   
-* @version  $Revision: 1.4 $
+* @version  $Revision: 1.5 $
 * @package  quicktags
 */
 
@@ -89,6 +89,7 @@ class QuickTags extends BitBase {
 			if( @BitBase::verifyId( $pParamHash['tag_id'] )) {
 				$this->mDb->associateUpdate( BIT_DB_PREFIX."quicktags", $pParamHash['store_quicktag'], array( 'tag_id' => $pParamHash['tag_id'] ));
 			} else {
+				$pParamHash['store_quicktag']['tag_id'] = $this->mDb->GenID( 'quicktags_tag_id_seq' );
 				$this->mDb->associateInsert( BIT_DB_PREFIX."quicktags", $pParamHash['store_quicktag'] );
 			}
 		}

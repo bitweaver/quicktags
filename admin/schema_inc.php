@@ -3,7 +3,7 @@
 $tables = array(
 
 'quicktags' => "
-	tag_id I4 AUTO PRIMARY,
+	tag_id I4 PRIMARY,
 	format_guid C(16) NOTNULL,
 	tagpos I4,
 	taglabel C(255),
@@ -24,6 +24,13 @@ $gBitInstaller->registerPackageInfo( QUICKTAGS_PKG_NAME, array(
 	'license' => '<a href="http://www.gnu.org/licenses/licenses.html#LGPL">LGPL</a>',
 ) );
 
+// ### Indexes
+$indices = array(
+	'quicktags_tag_id_idx' => array('table' => 'quicktags', 'cols' => 'tag_id', 'opts' => NULL ),
+);
+$gBitInstaller->registerSchemaIndexes( QUICKTAGS_PKG_NAME, $indices );
+
+// Data pump - note sequence registration is last due to this pump
 $format_guids = array(
 	'markdown' => array(
 		array(	'5','bold',											'bold',				'__text__'),
@@ -157,16 +164,25 @@ $format_guids = array(
 );
 
 // Adjust italic tikiwiki entry to correct escape sequence
-if ( $gBitDbType == "firebird" || $gBitDbType == "mssql" ) {
+if ( $gBitDbType == "firebird" || $gBitDbType == "mssql" || $gBitDbType == "postgres" ) {
 	$format_guids['pearwiki_tiki'][1][3] = "''''text''''";
 	$format_guids['tikiwiki'][1][3] = "''''text''''";
 }
 
+$tag_id_count = 0;
 foreach( $format_guids as $fg => $qts ) {
 	foreach( $qts as $qt ) {
+		$tag_id_count++;
 		$gBitInstaller->registerSchemaDefault( QUICKTAGS_PKG_NAME, 
-			"INSERT INTO `".BIT_DB_PREFIX."quicktags`	(`format_guid`,`tagpos`,`taglabel`,`tagicon`,`taginsert`) VALUES ('$fg','$qt[0]','$qt[1]','$qt[2]','$qt[3]')"
+			"INSERT INTO `".BIT_DB_PREFIX."quicktags`	(`tag_id`,`format_guid`,`tagpos`,`taglabel`,`tagicon`,`taginsert`) VALUES ('$tag_id_count','$fg','$qt[0]','$qt[1]','$qt[2]','$qt[3]')"
 		);
 	}
 }
-?>
+// End data pump
+
+// ### Sequences
+$sequences = array (
+	'quicktags_tag_id_seq'      => array( 'start' => ($tag_id_count>0 ? $tag_id_count : 1) )
+);
+$gBitInstaller->registerSchemaSequences( QUICKTAGS_PKG_NAME, $sequences );
+
