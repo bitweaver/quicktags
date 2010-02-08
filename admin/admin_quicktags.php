@@ -1,7 +1,7 @@
 <?php
-// $Header: /cvsroot/bitweaver/_bit_quicktags/admin/admin_quicktags.php,v 1.8 2008/06/25 22:21:21 spiderr Exp $
+// $Header: /cvsroot/bitweaver/_bit_quicktags/admin/admin_quicktags.php,v 1.9 2010/02/08 21:27:25 wjames5 Exp $
 
-require_once( '../../bit_setup_inc.php' );
+require_once( '../../kernel/setup_inc.php' );
 $gBitSystem->verifyPermission( 'p_admin' );
 
 include_once( QUICKTAGS_PKG_PATH.'Quicktags.php' );
