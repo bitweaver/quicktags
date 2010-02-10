@@ -16,7 +16,7 @@
 					{elseif $qt[qtg].taglabel eq 'spacer'}
 						{biticon ipackage=quicktags iname=$qt[qtg].tagicon ilocation="quicktag" iexplain="`$qt[qtg].taglabel`"}
 					{else}
-						<a onmouseover="document.getElementById('quicktitle').innerHTML='{$qt[qtg].taglabel}: {$qt[qtg].taginsert|escape:"javascript"|escape:"htmlall"}'" title="{tr}{$qt[qtg].taglabel}{/tr}" href="javascript:insertAt('{$textarea_id}','{$qt[qtg].taginsert|escape:"javascript"|escape:"htmlall"}');">
+						<a onmouseover="document.getElementById('quicktitle').innerHTML='{$qt[qtg].taglabel}: {$qt[qtg].taginsert|escape:"javascript"|escape:"htmlall"}'" title="{tr}{$qt[qtg].taglabel}{/tr}" href="javascript:BitBase.insertAt('{$textarea_id}','{$qt[qtg].taginsert|escape:"javascript"|escape:"htmlall"}');">
 							{biticon ipackage=quicktags iname=$qt[qtg].tagicon ilocation="quicktag" iexplain="`$qt[qtg].taglabel`"}
 						</a>
 					{/if}
@@ -28,7 +28,7 @@
 
 {foreach from=$gLibertySystem->mPlugins item=plugin}
 	{if $plugin.is_active == 'y' and $plugin.taginsert and $plugin.biticon}
-		<a onmouseover="document.getElementById('quicktitle').innerHTML='{$plugin.title|escape:"javascript"}: {$plugin.taginsert|escape:"javascript"|escape:"htmlall"}'" title="{$plugin.title|escape}" href="javascript:insertAt('{$textarea_id}','{$plugin.taginsert|escape:"javascript"|escape:"htmlall"}');">
+		<a onmouseover="document.getElementById('quicktitle').innerHTML='{$plugin.title|escape:"javascript"}: {$plugin.taginsert|escape:"javascript"|escape:"htmlall"}'" title="{$plugin.title|escape}" href="javascript:BitBase.insertAt('{$textarea_id}','{$plugin.taginsert|escape:"javascript"|escape:"htmlall"}');">
 			{eval var=`$plugin.biticon`}
 		</a>
 	{/if}

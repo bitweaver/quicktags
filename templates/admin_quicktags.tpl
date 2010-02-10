@@ -16,8 +16,8 @@
 
 			<div class="row">
 				{forminput}
-					<a href="javascript:insertAt('taglabel','newline');">{tr}Insert new line{/tr}</a><br />
-					<a href="javascript:insertAt('taglabel','spacer');javascript:insertAt('tagicon','spacer');">{tr}Insert spacer{/tr}</a>
+					<a href="javascript:BitBase.insertAt('taglabel','newline');">{tr}Insert new line{/tr}</a><br />
+					<a href="javascript:BitBase.insertAt('taglabel','spacer');javascript:BitBase.insertAt('tagicon','spacer');">{tr}Insert spacer{/tr}</a>
 				{/forminput}
 			</div>
 
@@ -63,7 +63,7 @@
 			{elseif $tag.taglabel eq 'spacer'}
 				{biticon iforce=icon ipackage=quicktags iname=$tag.tagicon iclass="quicktag icon" iexplain="`$tag.taglabel`"}
 			{else}
-				<a title="{tr}{$tag.taglabel}{/tr}" href="javascript:insertAt('test_line','{$tag.taginsert|escape:"javascript"}');">{biticon iforce=icon ipackage=quicktags iname=$tag.tagicon iclass="quicktag icon" iexplain="`$tag.taglabel`"}</a>
+				<a title="{tr}{$tag.taglabel}{/tr}" href="javascript:BitBase.insertAt('test_line','{$tag.taginsert|escape:"javascript"}');">{biticon iforce=icon ipackage=quicktags iname=$tag.tagicon iclass="quicktag icon" iexplain="`$tag.taglabel`"}</a>
 			{/if}
 		{/foreach}
 
