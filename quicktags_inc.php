@@ -3,7 +3,7 @@
 * quicktags package
 *
 * @author   
-* @version  $Revision: 1.5 $
+* @version  $Revision$
 * @package  quicktags
 * @subpackage  functions
 */

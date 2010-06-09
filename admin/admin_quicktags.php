@@ -1,5 +1,5 @@
 <?php
-// $Header: /cvsroot/bitweaver/_bit_quicktags/admin/admin_quicktags.php,v 1.9 2010/02/08 21:27:25 wjames5 Exp $
+// $Header$
 
 require_once( '../../kernel/setup_inc.php' );
 $gBitSystem->verifyPermission( 'p_admin' );

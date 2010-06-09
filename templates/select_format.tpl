@@ -1,4 +1,4 @@
-{* $Header: /cvsroot/bitweaver/_bit_quicktags/templates/select_format.tpl,v 1.2 2005/08/07 17:43:44 squareing Exp $ *}
+{* $Header$ *}
 
 <div class="admin quicktags">
 	<div class="header">
