@@ -17,7 +17,7 @@ class QuickTags extends BitBase {
 	 * @access public
 	 */
 	function QuickTags() {
-		BitBase::BitBase();
+		parent::__construct();
 	}
 
 	/**
