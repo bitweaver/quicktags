@@ -12,15 +12,6 @@
  */
 class QuickTags extends BitBase {
 	/**
-	 * QuickTags Initiation
-	 * 
-	 * @access public
-	 */
-	function QuickTags() {
-		parent::__construct();
-	}
-
-	/**
 	 * getList 
 	 * 
 	 * @param array $pListHash 
