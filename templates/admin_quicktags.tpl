@@ -1,6 +1,6 @@
 {strip}
 <div class="floaticon">
-	<a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?format_guid={$smarty.request.format_guid}">{biticon ipackage="icons" iname="document-new" iexplain="new quicktag"}</a>
+	<a href="{$smarty.const.QUICKTAGS_PKG_URL}admin/admin_quicktags.php?format_guid={$smarty.request.format_guid}">{booticon iname="icon-file" ipackage="icons" iexplain="new quicktag"}</a>
 	{bithelp}
 </div>
 
