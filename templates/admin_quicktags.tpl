@@ -90,8 +90,8 @@
 					<td>{$tag.taginsert|escape}</td>
 					<td>{if $tag.taglabel ne 'newline'}{biticon iforce=icon ipackage="quicktags" iname=$tag.iconpath iexplain="`$tag.taglabel`"}{/if} {$tag.iconpath}</td>
 					<td class="actionicon">
-						{smartlink format_guid=$smarty.request.format_guid tag_id=$tag.tag_id ititle="Edit" icontrol=$listInfo ibiticon="icons/accessories-text-editor"}
-						{smartlink format_guid=$smarty.request.format_guid remove=$tag.tag_id ititle="Remove" icontrol=$listInfo ibiticon="icons/edit-delete"}
+						{smartlink format_guid=$smarty.request.format_guid tag_id=$tag.tag_id ititle="Edit" icontrol=$listInfo booticon="icon-edit"}
+						{smartlink format_guid=$smarty.request.format_guid remove=$tag.tag_id ititle="Remove" icontrol=$listInfo booticon="icon-trash"}
 					</td>
 				</tr>
 			{/foreach}
