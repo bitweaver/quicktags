@@ -1,6 +1,6 @@
 {strip}
 {if $gContent->mInfo.format_guid}
-	{assign var=fg value=`$gContent->mInfo.format_guid`}
+	{assign var=fg value=$gContent->mInfo.format_guid}
 {elseif !$fg}
 	{assign var=fg value=$gBitSystem->getConfig('default_format')}
 {/if}
@@ -29,7 +29,7 @@
 {foreach from=$gLibertySystem->mPlugins item=plugin}
 	{if $plugin.is_active == 'y' and $plugin.taginsert and $plugin.biticon}
 		<a onmouseover="document.getElementById('quicktitle').innerHTML='{$plugin.title|escape:"javascript"}: {$plugin.taginsert|escape:"javascript"|escape:"htmlall"}'" title="{$plugin.title|escape}" href="javascript:BitBase.insertAt('{$textarea_id}','{$plugin.taginsert|escape:"javascript"|escape:"htmlall"}');">
-			{eval var=`$plugin.biticon`}
+			{eval var=$plugin.biticon}
 		</a>
 	{/if}
 {/foreach}
