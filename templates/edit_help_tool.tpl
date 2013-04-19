@@ -32,6 +32,8 @@
 			{eval var=$plugin.biticon}
 		</a>
 	{/if}
+	{if $plugin.is_active == 'y' and $plugin.taginsert and $plugin.booticon}
+		<a onmouseover="document.getElementById('quicktitle').innerHTML='{$plugin.title|escape:"javascript"}: {$plugin.taginsert|escape:"javascript"|escape:"htmlall"}'" title="{$plugin.title|escape}" href="javascript:BitBase.insertAt('{$textarea_id}','{$plugin.taginsert|escape:"javascript"|escape:"htmlall"}');">{eval var=$plugin.booticon}</a> {/if}
 {/foreach}
 
 {biticon ipackage=quicktags iname="spacer" ilocation="quicktag" iexplain="spacer"}
@@ -43,13 +45,7 @@
 {if !$no_resize}
 	{biticon ipackage=quicktags iname="spacer" ilocation="quicktag" iexplain="spacer"}
 
-	<a onmouseover="document.getElementById('quicktitle').innerHTML='{tr}Enlarge textarea height{/tr}'" href="javascript:textareasize('{$textarea_id}', +10)" title="{tr}Enlarge textarea height{/tr}">
-		{biticon ilocation="quicktag" ipackage="quicktags" iname="enlargeH" iexplain="Enlarge textarea height"}
-	</a>
-
-	<a onmouseover="document.getElementById('quicktitle').innerHTML='{tr}Reduce textarea height{/tr}'" href="javascript:textareasize('{$textarea_id}', -10)" title="{tr}Reduce textarea height{/tr}">
-		{biticon ilocation="quicktag" ipackage="quicktags" iname="reduceH" iexplain="Reduce textarea height"}
-	</a>
+	<a onmouseover="document.getElementById('quicktitle').innerHTML='{tr}Enlarge textarea height{/tr}'" href="javascript:textareasize('{$textarea_id}', +10)" title="{tr}Enlarge textarea height{/tr}">{booticon ilocation="quicktag" ipackage="quicktags" iname="icon-resize-full" iexplain="Enlarge textarea height"}</a> <a onmouseover="document.getElementById('quicktitle').innerHTML='{tr}Reduce textarea height{/tr}'" href="javascript:textareasize('{$textarea_id}', -10)" title="{tr}Reduce textarea height{/tr}">{booticon ilocation="quicktag" ipackage="quicktags" iname="icon-resize-small" iexplain="Reduce textarea height"}</a>
 {/if}
 
 <div id="quicktitle" class="small">&nbsp;</div>
