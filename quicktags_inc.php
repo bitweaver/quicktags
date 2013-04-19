@@ -19,5 +19,4 @@ $listHash = array(
 	'sort_mode' => 'tagpos_asc',
 );
 $quicktags = $gQuicktags->getList( $listHash );
-$gBitSmarty->assign_by_ref( 'quicktags', $quicktags );
-?>
+$_smarty_tpl->tpl_vars['quicktags'] = new Smarty_variable( $quicktags );
