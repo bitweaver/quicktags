@@ -74,7 +74,7 @@
 			</div>
 		</form>
 
-		<table class="data">
+		<table class="table data">
 			<caption>{tr}QuickTags{/tr}</caption>
 			<tr>
 				<th>{smartlink format_guid=$smarty.request.format_guid ititle="Position" isort=tagpos idefault=1 icontrol=$listInfo}</th>
