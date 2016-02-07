@@ -14,28 +14,28 @@
 			<input type="hidden" name="tag_id" value="{$smarty.request.tag_id}" />
 			<input type="hidden" name="format_guid" value="{$smarty.request.format_guid}" />
 
-			<div class="control-group">
+			<div class="form-group">
 				{forminput}
 					<a href="javascript:BitBase.insertAt('taglabel','newline');">{tr}Insert new line{/tr}</a><br />
 					<a href="javascript:BitBase.insertAt('taglabel','spacer');javascript:BitBase.insertAt('tagicon','spacer');">{tr}Insert spacer{/tr}</a>
 				{/forminput}
 			</div>
 
-			<div class="control-group">
+			<div class="form-group">
 				{formlabel label="Position" for="tagpos"}
 				{forminput}
 					<input type="text" maxlength="5" size="5" name="tagpos" id="tagpos" value="{$info.tagpos|escape}" />
 				{/forminput}
 			</div>
 
-			<div class="control-group">
+			<div class="form-group">
 				{formlabel label="Label" for="taglabel"}
 				{forminput}
 					<input type="text" maxlength="255" size="20" id="taglabel" name="taglabel" value="{$info.taglabel|escape}" />
 				{/forminput}
 			</div>
 
-			<div class="control-group">
+			<div class="form-group">
 				{formlabel label="Insert" for="taglabel"}
 				{forminput}
 					<input type="text" maxlength="255" size="40" name="taginsert" value="{$info.taginsert|escape}" />
@@ -43,7 +43,7 @@
 				{/forminput}
 			</div>
 
-			<div class="control-group">
+			<div class="form-group">
 				{formlabel label="Name of tag icon" for="tagicon"}
 				{forminput}
 					<input type="text" maxlength="255" size="40" id="tagicon" name="tagicon" value="{$info.tagicon|escape}" />
@@ -51,8 +51,8 @@
 				{/forminput}
 			</div>
 
-			<div class="control-group submit">
-				<input type="submit" class="btn" name="save" value="{tr}Save{/tr}" />
+			<div class="form-group submit">
+				<input type="submit" class="btn btn-default" name="save" value="{tr}Save{/tr}" />
 			</div>
 		{/form}
 
