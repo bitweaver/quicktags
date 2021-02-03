@@ -1,7 +1,7 @@
 <?php
 // $Header$
 
-require_once( '../../kernel/setup_inc.php' );
+require_once( '../../kernel/includes/setup_inc.php' );
 $gBitSystem->verifyPermission( 'p_admin' );
 
 include_once( QUICKTAGS_PKG_PATH.'Quicktags.php' );
